@@ -7,27 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C33C28141D1A96310047520C /* TaskDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C28131D1A96310047520C /* TaskDataModel.m */; };
+		C33C28171D1A98310047520C /* TaskEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = C33C28161D1A98310047520C /* TaskEditor.m */; };
+		C393BFED1D1A74C500D54780 /* TaskDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = C393BFEC1D1A74C500D54780 /* TaskDataController.m */; };
 		C3F061CD1D19CD54007AB40D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F061CC1D19CD54007AB40D /* main.m */; };
 		C3F061D01D19CD54007AB40D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F061CF1D19CD54007AB40D /* AppDelegate.m */; };
-		C3F061D31D19CD54007AB40D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F061D21D19CD54007AB40D /* ViewController.m */; };
 		C3F061D61D19CD54007AB40D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F061D41D19CD54007AB40D /* Main.storyboard */; };
 		C3F061D91D19CD54007AB40D /* TaskList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3F061D71D19CD54007AB40D /* TaskList.xcdatamodeld */; };
 		C3F061DB1D19CD54007AB40D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3F061DA1D19CD54007AB40D /* Assets.xcassets */; };
 		C3F061DE1D19CD54007AB40D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F061DC1D19CD54007AB40D /* LaunchScreen.storyboard */; };
+		C3F061E61D19CE7B007AB40D /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F061E51D19CE7B007AB40D /* selected.png */; };
+		C3F061E91D19CF02007AB40D /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F061E81D19CF02007AB40D /* TaskCell.m */; };
+		C3F061EC1D19CF82007AB40D /* TaskTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F061EB1D19CF82007AB40D /* TaskTable.m */; };
+		C3F061EF1D19D401007AB40D /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F061EE1D19D401007AB40D /* DataStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C33C28121D1A96310047520C /* TaskDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDataModel.h; sourceTree = "<group>"; };
+		C33C28131D1A96310047520C /* TaskDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDataModel.m; sourceTree = "<group>"; };
+		C33C28151D1A98310047520C /* TaskEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskEditor.h; sourceTree = "<group>"; };
+		C33C28161D1A98310047520C /* TaskEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskEditor.m; sourceTree = "<group>"; };
+		C393BFEB1D1A74C500D54780 /* TaskDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDataController.h; sourceTree = "<group>"; };
+		C393BFEC1D1A74C500D54780 /* TaskDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDataController.m; sourceTree = "<group>"; };
 		C3F061C81D19CD54007AB40D /* TaskList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F061CC1D19CD54007AB40D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3F061CE1D19CD54007AB40D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3F061CF1D19CD54007AB40D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C3F061D11D19CD54007AB40D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C3F061D21D19CD54007AB40D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C3F061D51D19CD54007AB40D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3F061D81D19CD54007AB40D /* TaskList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskList.xcdatamodel; sourceTree = "<group>"; };
 		C3F061DA1D19CD54007AB40D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3F061DD1D19CD54007AB40D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3F061DF1D19CD54007AB40D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3F061E51D19CE7B007AB40D /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
+		C3F061E71D19CF02007AB40D /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
+		C3F061E81D19CF02007AB40D /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
+		C3F061EA1D19CF82007AB40D /* TaskTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTable.h; sourceTree = "<group>"; };
+		C3F061EB1D19CF82007AB40D /* TaskTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTable.m; sourceTree = "<group>"; };
+		C3F061ED1D19D401007AB40D /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		C3F061EE1D19D401007AB40D /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +58,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C33C28181D1A9C520047520C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C3F061EA1D19CF82007AB40D /* TaskTable.h */,
+				C3F061EB1D19CF82007AB40D /* TaskTable.m */,
+				C33C28151D1A98310047520C /* TaskEditor.h */,
+				C33C28161D1A98310047520C /* TaskEditor.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C33C28191D1A9C710047520C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				C3F061ED1D19D401007AB40D /* DataStore.h */,
+				C3F061EE1D19D401007AB40D /* DataStore.m */,
+				C393BFEB1D1A74C500D54780 /* TaskDataController.h */,
+				C393BFEC1D1A74C500D54780 /* TaskDataController.m */,
+				C33C28121D1A96310047520C /* TaskDataModel.h */,
+				C33C28131D1A96310047520C /* TaskDataModel.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		C33C281A1D1A9C8F0047520C /* CustomizeElements */ = {
+			isa = PBXGroup;
+			children = (
+				C3F061E71D19CF02007AB40D /* TaskCell.h */,
+				C3F061E81D19CF02007AB40D /* TaskCell.m */,
+			);
+			name = CustomizeElements;
+			sourceTree = "<group>";
+		};
 		C3F061BF1D19CD54007AB40D = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +110,12 @@
 		C3F061CA1D19CD54007AB40D /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				C33C281A1D1A9C8F0047520C /* CustomizeElements */,
+				C33C28191D1A9C710047520C /* DataSource */,
+				C33C28181D1A9C520047520C /* ViewControllers */,
+				C3F061E51D19CE7B007AB40D /* selected.png */,
 				C3F061CE1D19CD54007AB40D /* AppDelegate.h */,
 				C3F061CF1D19CD54007AB40D /* AppDelegate.m */,
-				C3F061D11D19CD54007AB40D /* ViewController.h */,
-				C3F061D21D19CD54007AB40D /* ViewController.m */,
 				C3F061D41D19CD54007AB40D /* Main.storyboard */,
 				C3F061DA1D19CD54007AB40D /* Assets.xcassets */,
 				C3F061DC1D19CD54007AB40D /* LaunchScreen.storyboard */,
@@ -142,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3F061E61D19CE7B007AB40D /* selected.png in Resources */,
 				C3F061DE1D19CD54007AB40D /* LaunchScreen.storyboard in Resources */,
 				C3F061DB1D19CD54007AB40D /* Assets.xcassets in Resources */,
 				C3F061D61D19CD54007AB40D /* Main.storyboard in Resources */,
@@ -155,10 +208,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33C28141D1A96310047520C /* TaskDataModel.m in Sources */,
+				C3F061E91D19CF02007AB40D /* TaskCell.m in Sources */,
+				C33C28171D1A98310047520C /* TaskEditor.m in Sources */,
+				C3F061EC1D19CF82007AB40D /* TaskTable.m in Sources */,
 				C3F061D91D19CD54007AB40D /* TaskList.xcdatamodeld in Sources */,
-				C3F061D31D19CD54007AB40D /* ViewController.m in Sources */,
 				C3F061D01D19CD54007AB40D /* AppDelegate.m in Sources */,
 				C3F061CD1D19CD54007AB40D /* main.m in Sources */,
+				C3F061EF1D19D401007AB40D /* DataStore.m in Sources */,
+				C393BFED1D1A74C500D54780 /* TaskDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +367,7 @@
 				C3F061E41D19CD54007AB40D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
