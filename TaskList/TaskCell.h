@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TaskCellDelegate <NSObject>
+
+-(void)didSelectCell:(NSIndexPath*)cellIndex;
+-(void)didUnselectCell:(NSIndexPath*)cellIndex;
+
+@end
+
 @interface TaskCell : UITableViewCell
+
+@property (nonatomic, assign) id<TaskCellDelegate> delegate;
 
 @property (nonatomic, strong) IBOutlet UILabel *taskLabel;
 @property (nonatomic, strong) IBOutlet UILabel *taskDate;
 @property (nonatomic, strong) IBOutlet UIButton *taskSelectButon;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 -(IBAction)selectTaskSelectButon:(id)sender;
 

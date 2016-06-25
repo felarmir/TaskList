@@ -11,7 +11,7 @@
 #import "DataStore.h"
 #import "TaskDataModel.h"
 
-@interface TaskTable ()
+@interface TaskTable ()<TaskCellDelegate>
 
 @end
 
@@ -57,7 +57,8 @@
     cell.taskLabel.text = tdm.name;
     cell.taskDate.text = [self dateFormater:tdm.date];
     [cell.taskSelectButon setImage:nil forState:UIControlStateNormal];
-    
+    cell.indexPath = indexPath;
+    cell.delegate = self;
     return cell;
 }
 
@@ -71,7 +72,34 @@
     return [formater stringFromDate:date];
 }
 
+-(void)didSelectCell:(NSIndexPath *)cellIndex {
+    TaskCell *cell = [self.tableView cellForRowAtIndexPath:cellIndex];
+    [cell.taskLabel setTextColor:[UIColor grayColor]];
+    cell.taskLabel.font = [UIFont fontWithDescriptor:[self fontDeskriptorBoldItalic:cell.taskLabel] size:0];
+    cell.taskDate.font = [UIFont fontWithDescriptor:[self fontDeskriptorBoldItalic:cell.taskDate] size:0];
+    
+}
 
+-(void)didUnselectCell:(NSIndexPath *)cellIndex {
+    TaskCell *cell = [self.tableView cellForRowAtIndexPath:cellIndex];
+    
+    [cell.taskLabel setTextColor:[UIColor blackColor]];
+    cell.taskLabel.font = [UIFont fontWithDescriptor:[self fontDeskriptorVertical:cell.taskLabel] size:0];
+    cell.taskDate.font = [UIFont fontWithDescriptor:[self fontDeskriptorVertical:cell.taskDate] size:0];
+}
+
+-(UIFontDescriptor*)fontDeskriptorBoldItalic:(UILabel*)label {
+    UIFontDescriptor * fontD = [label.font.fontDescriptor
+                                fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold
+                                | UIFontDescriptorTraitItalic];
+    return fontD;
+}
+
+-(UIFontDescriptor*)fontDeskriptorVertical:(UILabel*)label {
+    UIFontDescriptor * fontD = [label.font.fontDescriptor
+                                fontDescriptorWithSymbolicTraits: UIFontDescriptorTraitVertical];
+    return fontD;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

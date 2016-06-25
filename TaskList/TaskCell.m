@@ -12,6 +12,9 @@
 {
     BOOL isSelectedTask;
 }
+
+@synthesize delegate;
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     isSelectedTask = NO;
@@ -25,9 +28,15 @@
     if (!isSelectedTask) {
         [self.taskSelectButon setImage:[UIImage imageNamed:@"selected.png"] forState:UIControlStateNormal];
         isSelectedTask = YES;
+        if (delegate && [delegate respondsToSelector:@selector(didSelectCell:)]) {
+            [delegate performSelector:@selector(didSelectCell:) withObject:self.indexPath];
+        }
     } else {
         [self.taskSelectButon setImage:nil forState:UIControlStateNormal];
         isSelectedTask = NO;
+        if (delegate && [delegate respondsToSelector:@selector(didUnselectCell:)]) {
+            [delegate performSelector:@selector(didUnselectCell:) withObject:self.indexPath];
+        }
     }
 }
 

@@ -194,6 +194,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="selected.png" width="267" height="270"/>
+        <image name="selected.png" width="256" height="256"/>
     </resources>
 </document>
