@@ -17,7 +17,7 @@
 
 @implementation TaskTable
 {
-    NSArray *taskData;
+    NSMutableArray *taskData;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,7 +26,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    taskData = [[DataStore instance] dataArray];
+    [super viewWillAppear:animated];
+    taskData = [NSMutableArray arrayWithArray:[[DataStore instance] dataArray]];
     [self.tableView reloadData];
 }
 
@@ -60,6 +61,42 @@
     cell.indexPath = indexPath;
     cell.delegate = self;
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        UIAlertController *deleteAlert = [UIAlertController alertControllerWithTitle:@"Delete" message:@"Are you wan't?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [deleteAlert dismissViewControllerAnimated:YES completion:nil];
+            [self deleteRowFromBase:indexPath];
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [deleteAlert dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [deleteAlert addAction:okAction];
+        [deleteAlert addAction:cancelAction];
+        [self presentViewController:deleteAlert animated:YES completion:nil];
+    }
+}
+
+-(void)deleteRowFromBase:(NSIndexPath*)indexPath {
+    TaskDataModel *tdm = [taskData objectAtIndex:indexPath.row];
+    [tdm.managedObjectContext deleteObject:tdm];
+    NSError *error = nil;
+    [tdm.managedObjectContext save:&error];
+    if (error) {
+        NSLog(@"I can't delete!");
+    } else {
+        [taskData removeObjectAtIndex:indexPath.row];
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [self.tableView endUpdates];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -100,25 +137,6 @@
                                 fontDescriptorWithSymbolicTraits: UIFontDescriptorTraitVertical];
     return fontD;
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
 /*
 // Override to support rearranging the table view.

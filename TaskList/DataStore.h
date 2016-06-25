@@ -13,5 +13,4 @@
 +(DataStore*)instance;
 -(NSArray*)dataArray;
 -(BOOL)addData:(NSDate*)date name:(NSString*)name taskDescription:(NSString*)taskDescription complite:(BOOL)complite;
-
 @end
