@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *taskDescription;
-@property (nonatomic) BOOL complate;
+@property (nonatomic, strong) NSNumber *complate;
 
 @end

@@ -17,7 +17,7 @@
 
 @implementation TaskTable
 {
-    NSMutableArray *taskData;
+    NSMutableArray<TaskDataModel*> *taskData;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,12 +54,21 @@
     }
     
     TaskDataModel *tdm = [taskData objectAtIndex:indexPath.row];
-    
+
     cell.taskLabel.text = tdm.name;
     cell.taskDate.text = [self dateFormater:tdm.date];
-    [cell.taskSelectButon setImage:nil forState:UIControlStateNormal];
     cell.indexPath = indexPath;
     cell.delegate = self;
+    
+    if ([tdm.complate boolValue]) {
+        cell.taskLabel.font = [UIFont fontWithDescriptor:[self fontDeskriptorBoldItalic:cell.taskLabel] size:0.0];
+        cell.taskDate.font = [UIFont fontWithDescriptor:[self fontDeskriptorBoldItalic:cell.taskDate] size:0.0];
+        cell.taskLabel.textColor = [UIColor grayColor];
+        [cell.taskSelectButon setImage:[UIImage imageNamed:@"selected.png"] forState:UIControlStateNormal];
+    } else {
+        [cell.taskSelectButon setImage:nil forState:UIControlStateNormal];
+    }
+    
     return cell;
 }
 
@@ -114,15 +123,27 @@
     [cell.taskLabel setTextColor:[UIColor grayColor]];
     cell.taskLabel.font = [UIFont fontWithDescriptor:[self fontDeskriptorBoldItalic:cell.taskLabel] size:0];
     cell.taskDate.font = [UIFont fontWithDescriptor:[self fontDeskriptorBoldItalic:cell.taskDate] size:0];
-    
+    [self writeCellStatus:[taskData objectAtIndex:cellIndex.row] status:YES];
 }
 
 -(void)didUnselectCell:(NSIndexPath *)cellIndex {
     TaskCell *cell = [self.tableView cellForRowAtIndexPath:cellIndex];
-    
     [cell.taskLabel setTextColor:[UIColor blackColor]];
     cell.taskLabel.font = [UIFont fontWithDescriptor:[self fontDeskriptorVertical:cell.taskLabel] size:0];
     cell.taskDate.font = [UIFont fontWithDescriptor:[self fontDeskriptorVertical:cell.taskDate] size:0];
+    [self writeCellStatus:[taskData objectAtIndex:cellIndex.row] status:NO];
+}
+
+-(void)writeCellStatus:(TaskDataModel*)model status:(Boolean)status {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        model.complate = [NSNumber numberWithBool:status];
+        NSError *error = nil;
+        [model.managedObjectContext save:&error];
+        if (error) {
+            NSLog(@"Error update");
+        }
+    });
 }
 
 -(UIFontDescriptor*)fontDeskriptorBoldItalic:(UILabel*)label {
@@ -138,28 +159,6 @@
     return fontD;
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

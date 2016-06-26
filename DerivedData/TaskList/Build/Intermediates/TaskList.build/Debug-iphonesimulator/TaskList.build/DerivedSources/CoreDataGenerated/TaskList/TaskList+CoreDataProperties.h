@@ -2,7 +2,7 @@
 //  TaskList+CoreDataProperties.h
 //  
 //
-//  Created by Denis Andreev on 21.06.16.
+//  Created by Denis Andreev on 26.06.16.
 //
 //
 
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<TaskList *> *)fetchRequest;
 
-@property (nonatomic) BOOL complate;
+@property (nonatomic) int16_t complate;
 @property (nullable, nonatomic, copy) NSDate *date;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, copy) NSString *taskDescription;

@@ -49,7 +49,7 @@
     dataRow.name = name;
     dataRow.date = date;
     dataRow.taskDescription = taskDescription;
-    dataRow.complate = complite;
+    dataRow.complate = [NSNumber numberWithBool:complite];
     
     NSError *error = nil;
     [dataRow.managedObjectContext save:&error];

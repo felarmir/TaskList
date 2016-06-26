@@ -2,7 +2,7 @@
 //  TaskList+CoreDataClass.h
 //  
 //
-//  Created by Denis Andreev on 21.06.16.
+//  Created by Denis Andreev on 26.06.16.
 //
 //
 
